@@ -3,41 +3,41 @@
 var ESC_KEY = 'Escape';
 var ENTER_KEY = 'Enter';
 
-var similarListElement = document.querySelector('.setup-similar-list');
-
-var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
-
-// var WIZARD_NAMES = ['Дамблдор', 'Волдеморт', 'Доктор Стрендж', 'Гарри Поттер'];
 var firstName = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
 var lastName = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
 var coatColor = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var eyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
+var fireballColor = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+
+var similarListElement = document.querySelector('.setup-similar-list');
+
+var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
 
 var getRandomElement = function (arr) {
   var rand = Math.random() * arr.length - 0.5;
-  return Math.round(rand);
+  return arr[Math.round(rand)];
 };
 
 var wizards = [
   {
-    name: `${firstName[getRandomElement(firstName)]} ${lastName[getRandomElement(lastName)]}`,
-    coatColor: `${coatColor[getRandomElement(coatColor)]}`,
-    eyesColor: `${eyesColor[getRandomElement(eyesColor)]}`
+    name: `${getRandomElement(firstName)} ${getRandomElement(lastName)}`,
+    coatColor: `${getRandomElement(coatColor)}`,
+    eyesColor: `${getRandomElement(eyesColor)}`
   },
   {
-    name: `${firstName[getRandomElement(firstName)]} ${lastName[getRandomElement(lastName)]}`,
-    coatColor: `${coatColor[getRandomElement(coatColor)]}`,
-    eyesColor: `${eyesColor[getRandomElement(eyesColor)]}`
+    name: `${getRandomElement(firstName)} ${getRandomElement(lastName)}`,
+    coatColor: `${getRandomElement(coatColor)}`,
+    eyesColor: `${getRandomElement(eyesColor)}`
   },
   {
-    name: `${firstName[getRandomElement(firstName)]} ${lastName[getRandomElement(lastName)]}`,
-    coatColor: `${coatColor[getRandomElement(coatColor)]}`,
-    eyesColor: `${eyesColor[getRandomElement(eyesColor)]}`
+    name: `${getRandomElement(firstName)} ${getRandomElement(lastName)}`,
+    coatColor: `${getRandomElement(coatColor)}`,
+    eyesColor: `${getRandomElement(eyesColor)}`
   },
   {
-    name: `${firstName[getRandomElement(firstName)]} ${lastName[getRandomElement(lastName)]}`,
-    coatColor: `${coatColor[getRandomElement(coatColor)]}`,
-    eyesColor: `${eyesColor[getRandomElement(eyesColor)]}`
+    name: `${getRandomElement(firstName)} ${getRandomElement(lastName)}`,
+    coatColor: `${getRandomElement(coatColor)}`,
+    eyesColor: `${getRandomElement(eyesColor)}`
   }
 ];
 
@@ -100,10 +100,40 @@ setupClose.addEventListener('keydown', function (evt) {
   }
 });
 
-var wizardCoat = document.querySelector('.setup-wizard .wizard-coat');
 
-var onWizardColor = function () {
-  wizardCoat.style.fill = coatColor[getRandomElement(coatColor)];
+var wizardCoat = document.querySelector('.setup-wizard .wizard-coat');
+var wizardEyes = document.querySelector('.setup-wizard .wizard-eyes');
+var wizardFireball = document.querySelector('.setup-fireball-wrap');
+var inputCoatColor = document.querySelector('input[name=coat-color]');
+var inputEyesColor = document.querySelector('input[name=eyes-color]');
+var inputFireballColor = document.querySelector('input[name=fireball-color]');
+
+var onWizardColor = function (wizardThing, thingColors) {
+  var randomColor = getRandomElement(thingColors);
+
+  while (randomColor === wizardThing.style.fill) {
+    randomColor = getRandomElement(thingColors);
+  }
+
+  if (wizardThing === wizardFireball) {
+    wizardThing.style.backgroundColor = randomColor;
+  } else {
+    wizardThing.style.fill = randomColor;
+  }
+
+  switch (wizardThing) {
+    case wizardCoat:
+      inputCoatColor.value = randomColor;
+      break;
+    case wizardEyes:
+      inputCoatColor.value = randomColor;
+      break;
+    case wizardFireball:
+      inputCoatColor.value = randomColor;
+      break;
+  }
 };
 
-wizardCoat.addEventListener('click', onWizardColor);
+wizardCoat.addEventListener('click', onWizardColor.bind(null, wizardCoat, coatColor));
+wizardEyes.addEventListener('click', onWizardColor.bind(null, wizardEyes, eyesColor));
+wizardFireball.addEventListener('click', onWizardColor.bind(null, wizardFireball, fireballColor));
