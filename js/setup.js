@@ -13,30 +13,31 @@ var lastName = ['да Марья', 'Верон', 'Мирабелла', 'Валь
 var coatColor = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var eyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
 
-var randomElem = function (arr) {
+var getRandomElement = function (arr) {
   var rand = Math.random() * arr.length - 0.5;
   return Math.round(rand);
 };
+
 var wizards = [
   {
-    name: `${firstName[randomElem(firstName)]} ${lastName[randomElem(lastName)]}`,
-    coatColor: `${coatColor[randomElem(coatColor)]}`,
-    eyesColor: `${eyesColor[randomElem(eyesColor)]}`
+    name: `${firstName[getRandomElement(firstName)]} ${lastName[getRandomElement(lastName)]}`,
+    coatColor: `${coatColor[getRandomElement(coatColor)]}`,
+    eyesColor: `${eyesColor[getRandomElement(eyesColor)]}`
   },
   {
-    name: `${firstName[randomElem(firstName)]} ${lastName[randomElem(lastName)]}`,
-    coatColor: `${coatColor[randomElem(coatColor)]}`,
-    eyesColor: `${eyesColor[randomElem(eyesColor)]}`
+    name: `${firstName[getRandomElement(firstName)]} ${lastName[getRandomElement(lastName)]}`,
+    coatColor: `${coatColor[getRandomElement(coatColor)]}`,
+    eyesColor: `${eyesColor[getRandomElement(eyesColor)]}`
   },
   {
-    name: `${firstName[randomElem(firstName)]} ${lastName[randomElem(lastName)]}`,
-    coatColor: `${coatColor[randomElem(coatColor)]}`,
-    eyesColor: `${eyesColor[randomElem(eyesColor)]}`
+    name: `${firstName[getRandomElement(firstName)]} ${lastName[getRandomElement(lastName)]}`,
+    coatColor: `${coatColor[getRandomElement(coatColor)]}`,
+    eyesColor: `${eyesColor[getRandomElement(eyesColor)]}`
   },
   {
-    name: `${firstName[randomElem(firstName)]} ${lastName[randomElem(lastName)]}`,
-    coatColor: `${coatColor[randomElem(coatColor)]}`,
-    eyesColor: `${eyesColor[randomElem(eyesColor)]}`
+    name: `${firstName[getRandomElement(firstName)]} ${lastName[getRandomElement(lastName)]}`,
+    coatColor: `${coatColor[getRandomElement(coatColor)]}`,
+    eyesColor: `${eyesColor[getRandomElement(eyesColor)]}`
   }
 ];
 
@@ -98,3 +99,11 @@ setupClose.addEventListener('keydown', function (evt) {
     closePopup();
   }
 });
+
+var wizardCoat = document.querySelector('.setup-wizard .wizard-coat');
+
+var onWizardColor = function () {
+  wizardCoat.style.fill = coatColor[getRandomElement(coatColor)];
+};
+
+wizardCoat.addEventListener('click', onWizardColor);
