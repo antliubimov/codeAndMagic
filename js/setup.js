@@ -126,10 +126,10 @@ var onWizardColor = function (wizardThing, thingColors) {
       inputCoatColor.value = randomColor;
       break;
     case wizardEyes:
-      inputCoatColor.value = randomColor;
+      inputEyesColor.value = randomColor;
       break;
     case wizardFireball:
-      inputCoatColor.value = randomColor;
+      inputFireballColor.value = randomColor;
       break;
   }
 };
