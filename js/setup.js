@@ -11,24 +11,24 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template').c
 
 var wizards = [
   {
-    name: `${window.colorize.getRandomColor(firstName)} ${window.colorize.getRandomColor(lastName)}`,
-    coatColor: `${window.colorize.getRandomColor(window.colorize.wizardCoatColor)}`,
-    eyesColor: `${window.colorize.getRandomColor(window.colorize.wizardEyesColor)}`
+    name: `${window.colorize.getColor(firstName)} ${window.colorize.getColor(lastName)}`,
+    coatColor: `${window.colorize.getColor(window.colorize.wizardCoatColor)}`,
+    eyesColor: `${window.colorize.getColor(window.colorize.wizardEyesColor)}`
   },
   {
-    name: `${window.colorize.getRandomColor(firstName)} ${window.colorize.getRandomColor(lastName)}`,
-    coatColor: `${window.colorize.getRandomColor(window.colorize.wizardCoatColor)}`,
-    eyesColor: `${window.colorize.getRandomColor(window.colorize.wizardEyesColor)}`
+    name: `${window.colorize.getColor(firstName)} ${window.colorize.getColor(lastName)}`,
+    coatColor: `${window.colorize.getColor(window.colorize.wizardCoatColor)}`,
+    eyesColor: `${window.colorize.getColor(window.colorize.wizardEyesColor)}`
   },
   {
-    name: `${window.colorize.getRandomColor(firstName)} ${window.colorize.getRandomColor(lastName)}`,
-    coatColor: `${window.colorize.getRandomColor(window.colorize.wizardCoatColor)}`,
-    eyesColor: `${window.colorize.getRandomColor(window.colorize.wizardEyesColor)}`
+    name: `${window.colorize.getColor(firstName)} ${window.colorize.getColor(lastName)}`,
+    coatColor: `${window.colorize.getColor(window.colorize.wizardCoatColor)}`,
+    eyesColor: `${window.colorize.getColor(window.colorize.wizardEyesColor)}`
   },
   {
-    name: `${window.colorize.getRandomColor(firstName)} ${window.colorize.getRandomColor(lastName)}`,
-    coatColor: `${window.colorize.getRandomColor(window.colorize.wizardCoatColor)}`,
-    eyesColor: `${window.colorize.getRandomColor(window.colorize.wizardEyesColor)}`
+    name: `${window.colorize.getColor(firstName)} ${window.colorize.getColor(lastName)}`,
+    coatColor: `${window.colorize.getColor(window.colorize.wizardCoatColor)}`,
+    eyesColor: `${window.colorize.getColor(window.colorize.wizardEyesColor)}`
   }
 ];
 

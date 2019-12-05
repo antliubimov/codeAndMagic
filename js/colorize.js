@@ -14,7 +14,7 @@
       wizardEyesColor,
       wizardFireballColor,
 
-      getRandomColor: getRandomElement,
+      getColor: getRandomElement,
 
       setColor: function (element, inputElement, colorArr) {
         element.addEventListener('click', function () {
