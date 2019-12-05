@@ -64,7 +64,3 @@ var inputFireballColor = document.querySelector('input[name=fireball-color]');
 window.colorize.setColor(wizardCoat, inputCoatColor, window.colorize.wizardCoatColor);
 window.colorize.setColor(wizardEyes, inputEyesColor, window.colorize.wizardEyesColor);
 window.colorize.setColor(wizardFireball, inputFireballColor, window.colorize.wizardFireballColor);
-<<<<<<< HEAD
-=======
-
->>>>>>> 77f3c0df5c639b72619e2ac8c07f299e3214dcfb
