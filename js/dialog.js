@@ -1,14 +1,15 @@
 // dialog.js
 'use strict';
+
 var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = document.querySelector('.setup-close');
 var setupUserName = document.querySelector('.setup-user-name');
-var setupSubmit = document.querySelector('.setup-submit');
+//var setupSubmit = document.querySelector('.setup-submit');
 
 var onPopupEscPress = function (evt) {
-  if (setupUserName !== document.activeElement && evt.key === ESC_KEY) {
-    closePopup();
+  if (setupUserName !== document.activeElement) {
+    window.util.isEscEvent(evt, closePopup);
   }
 };
 
@@ -27,9 +28,7 @@ setupOpen.addEventListener('click', function () {
 });
 
 setupOpen.addEventListener('keydown', function (evt) {
-  if (evt.key === ENTER_KEY) {
-    openPopup();
-  }
+  window.util.isEnterEvent(evt, openPopup);
 });
 
 setupClose.addEventListener('click', function () {
@@ -37,7 +36,5 @@ setupClose.addEventListener('click', function () {
 });
 
 setupClose.addEventListener('keydown', function (evt) {
-  if (evt.key === ENTER_KEY) {
-    closePopup();
-  }
+  window.util.isEnterEvent(evt, closePopup);
 });
