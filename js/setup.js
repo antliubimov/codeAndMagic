@@ -43,6 +43,10 @@
   };
 
   var successHandler = function (wizards) {
+    var error = document.querySelector('.error');
+    if (error) {
+      error.remove();
+    }
     var fragment = document.createDocumentFragment();
 
     for (var i = 0; i < 4; i++) {
@@ -55,6 +59,7 @@
 
   var errorHandler = function (errorMessage) {
     var node = document.createElement('div');
+    node.classList.add('error');
     node.style = 'z-index: 100; margin: 0 auto; text-align: center; background-color: red';
     node.style.position = 'absolute';
     node.style.left = 0;
@@ -67,6 +72,14 @@
 
   window.backend.load(successHandler, errorHandler);
 
+  var userDialog = document.querySelector('.setup');
+  var form = document.querySelector('.setup-wizard-form');
+  form.addEventListener('submit', function (evt) {
+    window.backend.save(new FormData(form), function (response) {
+      userDialog.classList.add('hidden');
+    }, errorHandler);
+    evt.preventDefault();
+  });
 
   var wizardCoat = document.querySelector('.setup-wizard .wizard-coat');
   var wizardEyes = document.querySelector('.setup-wizard .wizard-eyes');
