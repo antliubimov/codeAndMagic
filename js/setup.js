@@ -2,8 +2,8 @@
 'use strict';
 
 (function() {
-  var firstName = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
-  var lastName = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
+  // var firstName = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
+  // var lastName = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
 
   var similarListElement = document.querySelector('.setup-similar-list');
 
@@ -43,10 +43,6 @@
   };
 
   var successHandler = function (wizards) {
-    var error = document.querySelector('.error');
-    if (error) {
-      error.remove();
-    }
     var fragment = document.createDocumentFragment();
 
     for (var i = 0; i < 4; i++) {
@@ -72,10 +68,19 @@
 
   window.backend.load(successHandler, errorHandler);
 
+  var removeError = function () {
+    var error = document.querySelector('.error');
+    if (error) {
+      error.remove();
+    }
+  };
+
   var userDialog = document.querySelector('.setup');
   var form = document.querySelector('.setup-wizard-form');
+
   form.addEventListener('submit', function (evt) {
     window.backend.save(new FormData(form), function (response) {
+      removeError();
       userDialog.classList.add('hidden');
     }, errorHandler);
     evt.preventDefault();
