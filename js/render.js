@@ -14,7 +14,16 @@
     return wizardElement;
   };
 
-  return window.render = {
-    renderWizard
+  var similar = document.querySelector('.setup-similar');
+  var similarList = document.querySelector('.setup-similar-list');
+
+  window.render = function (data) {
+    var takeNumber = data.length > 4 ? 4 : data.length;
+    similarList.innerHTML = '';
+    for (var i = 0; i < takeNumber; i++) {
+      similarList.appendChild(renderWizard(data[i]));
+    }
+
+    similar.classList.remove('hidden');
   };
 })();
