@@ -1,9 +1,7 @@
-// setup.js
+// similar.js
 'use strict';
 
-(function() {
-  var similarListElement = document.querySelector('.setup-similar-list');
-
+(function () {
   var coatColor;
   var eyesColor;
   var wizards = [];
@@ -35,16 +33,6 @@
       var rankDiff = getRank(right) - getRank(left);
       return rankDiff === 0 ? namesComparator(left.name, right.name) : rankDiff;
     }));
-  };
-
-  window.colorize.wizard.onCoatChange = function(color) {
-    eyesColor = color;
-    updateWizards();
-  };
-
-  window.colorize.onCoatChange = function(color) {
-    coatColor = color;
-    updateWizards();
   };
 
   var successHandler = function (data) {
@@ -85,16 +73,9 @@
     evt.preventDefault();
   });
 
-  var wizardCoat = document.querySelector('.setup-wizard .wizard-coat');
-  var wizardEyes = document.querySelector('.setup-wizard .wizard-eyes');
-  var wizardFireball = document.querySelector('.setup-fireball-wrap');
-  var inputCoatColor = document.querySelector('input[name=coat-color]');
-  var inputEyesColor = document.querySelector('input[name=eyes-color]');
-  var inputFireballColor = document.querySelector('input[name=fireball-color]');
-
-  window.colorize.setColor(wizardCoat, inputCoatColor, window.colorize.wizardCoatColor);
-  window.colorize.setColor(wizardEyes, inputEyesColor, window.colorize.wizardEyesColor);
-  window.colorize.setColor(wizardFireball, inputFireballColor, window.colorize.wizardFireballColor);
+  window.similar = {
+    updateWizards
+  };
 })();
 
 

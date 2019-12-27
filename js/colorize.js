@@ -6,15 +6,6 @@
   var wizardEyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
   var wizardFireballColor = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
-  var wizard = {
-    onEyesChange: function (color) {
-      return color;
-    },
-    onCoatChange: function (color) {
-      return color;
-    }
-  };
-
   var getRandomElement = function (arr) {
     var rand = Math.random() * arr.length - 0.5;
     return arr[Math.round(rand)];
@@ -35,15 +26,26 @@
       }
 
       inputElement.value = color;
+
+      window.similar.updateWizards();
     });
   };
+
+
+  var wizardCoat = document.querySelector('.setup-wizard .wizard-coat');
+  var wizardEyes = document.querySelector('.setup-wizard .wizard-eyes');
+  var wizardFireball = document.querySelector('.setup-fireball-wrap');
+  var inputCoatColor = document.querySelector('input[name=coat-color]');
+  var inputEyesColor = document.querySelector('input[name=eyes-color]');
+  var inputFireballColor = document.querySelector('input[name=fireball-color]');
+
+  setColor(wizardCoat, inputCoatColor, wizardCoatColor);
+  setColor(wizardEyes, inputEyesColor, wizardEyesColor);
+  setColor(wizardFireball, inputFireballColor, wizardFireballColor);
 
   window.colorize = {
       wizardCoatColor,
       wizardEyesColor,
       wizardFireballColor,
-      getColor: getRandomElement,
-      setColor,
-      wizard
     };
 })();
