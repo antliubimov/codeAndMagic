@@ -2,17 +2,21 @@
 'use strict';
 
 (function () {
-  var coatColor;
-  var eyesColor;
   var wizards = [];
 
   var getRank = function (wizard) {
+    var coatColor = document.querySelector('input[name=coat-color]').value;
+    var eyesColor = document.querySelector('input[name=eyes-color]').value;
+    var fireballColor = document.querySelector('input[name=fireball-color]').value;
     var rank = 0;
 
     if (wizard.colorCoat === coatColor) {
       rank += 2;
     }
     if (wizard.colorEyes === eyesColor) {
+      rank += 1;
+    }
+    if (wizard.colorFireball === fireballColor) {
       rank += 1;
     }
     return rank;
