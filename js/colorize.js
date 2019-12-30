@@ -27,7 +27,7 @@
 
       inputElement.value = color;
 
-      window.debounce(window.similar.updateWizards);
+      window.debounce(window.similar.updateWizards)();
     });
   };
 
