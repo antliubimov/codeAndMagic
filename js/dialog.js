@@ -6,6 +6,8 @@
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = document.querySelector('.setup-close');
   var setupUserName = document.querySelector('.setup-user-name');
+  var preview = document.querySelector('.setup-user-pic');
+  var openIcon = document.querySelector('.setup-open-icon');
 
   var onPopupEscPress = function (evt) {
     if (setupUserName !== document.activeElement) {
@@ -21,6 +23,7 @@
   var closePopup = function () {
     setup.classList.add('hidden');
     document.removeEventListener('keydown', onPopupEscPress);
+    openIcon.src = preview.src;
   };
 
   setupOpen.addEventListener('click', function () {
