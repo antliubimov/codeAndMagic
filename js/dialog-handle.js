@@ -13,7 +13,7 @@
   dialogHandle.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
 
-    var startCoords = Coordinate(evt.clientX, evt.clientY);
+    var startCoords = new Coordinate(evt.clientX, evt.clientY);
 
     var dragged = false;
 
@@ -21,9 +21,9 @@
       moveEvt.preventDefault();
       dragged = true;
 
-      var shift = Coordinate(startCoords.x - moveEvt.clientX, startCoords.y - moveEvt.clientY);
+      var shift = new Coordinate(startCoords.x - moveEvt.clientX, startCoords.y - moveEvt.clientY);
 
-      startCoords = Coordinate(moveEvt.clientX, moveEvt.clientY);
+      startCoords = new Coordinate(moveEvt.clientX, moveEvt.clientY);
 
       setup.style.top = (setup.offsetTop - shift.y) + 'px';
       setup.style.left = (setup.offsetLeft - shift.x) + 'px';
